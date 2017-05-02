@@ -1,0 +1,1 @@
+export { default } from 'ember-slow-motion/components/slow-motion';

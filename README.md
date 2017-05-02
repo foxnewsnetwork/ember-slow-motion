@@ -1,6 +1,25 @@
 # ember-slow-motion
 
-This README outlines the details of collaborating on this Ember addon.
+Ember tagless component for handling value transitions in handlebars. Inspired by the api of react-motion https://github.com/chenglou/react-motion
+
+## Usage
+Use the `{{slow-motion}}` component like so:
+
+```javascript
+{{#slow-motion 
+  transitionValue=myValue 
+  transitionTimingFunction=myBezierCurve 
+  transitionDuration=500 as |animatedValue|}}
+
+  <div class='animate-me' 
+    style={{html-safe 
+      (concat 'transform: translateX(' animatedValue 'px);' )}}>
+      {{animatedValue}}
+  </div>
+{{/slow-motion}}
+```
+
+`{{slow-motion}}` receives changes to `myValue`, it will continuously yield out the interpolated in-between values to `animatedValue` during the entire `transitionDuration` 
 
 ## Installation
 
