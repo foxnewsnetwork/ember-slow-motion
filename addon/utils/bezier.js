@@ -99,4 +99,4 @@ export default function bezier (mX1, mY1, mX2, mY2) {
     }
     return calcBezier(getTForX(x), mY1, mY2);
   };
-};
+}

@@ -1,0 +1,76 @@
+<div class="top-bar">
+  <div class="top-bar-title">
+    <strong>Ember Slow Motion</strong>
+  </div>
+  <div class="top-bar__links">
+    <div class="top-bar-left">
+      <ul class="dropdown menu">
+        <li>
+          <a href="https://github.com/foxnewsnetwork/ember-slow-motion">
+            Github
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="expanded row">
+  <div class="medium-3 large-2 columns">
+    <ul class="vertical menu docs-nav">
+      <li class="docs-nav__title-member">Introduction</li>
+    </ul>
+  </div>
+  <div class="medium-9 large-10 columns">
+    <article class="docs-component">
+      <header>
+        <h1 class="docs-component__page-title">
+          Usage
+        </h1>
+        <p class="docs-component__page-lead">
+          A tagless component inspired by react-motion to yield out a slowly transitioning value
+        </p>
+      </header>
+      <hr>
+      <div class="row">
+        <div class="large-9 columns">
+          <h2 class="docs-component__heading">
+            Basic Comparison
+          </h2>
+          <div class="docs-component__examples">
+            <div class="docs-component__example-slow-motion">
+              <h3 class="docs-component__example-header">Slow Motion Component</h3>
+              {{#slow-motion transitionValue=xValue as |animeX|}}
+                <div class="docs-component__example-box docs-component__example-box--slow-motion"
+                  style={{stylize transform=(concat 'translateX(' animeX 'px);')}}>
+                  <span class="docs-component__test-output">{{animeX}}</span>
+                </div>
+              {{/slow-motion}}
+            </div>
+            <div class="docs-component__example-slow-motion">
+              <h3 class="docs-component__example-header">CSS3 Transitions</h3>
+              <div class="docs-component__example-box docs-component__example-box--css3-transition"
+                style={{stylize transform=(concat 'translateX(' xValue 'px);')}}>
+                {{xValue}}
+              </div>
+            </div>
+          </div>
+          <h2 class="docs-component__heading">
+            Why?
+          </h2>
+          <p class="docs-component__explanation">
+            In general, you want to use css3 transitions over the slow-motion component since css3 transitions are far more optimized and fluid than doing it in ember-ified javascript. However, if you're developing on an objectively poorly optimized platform (e.g. PS4 browsers, Wii, XBox, and certain older browsers), this component might be your only choice. Use at your peril!
+          </p>
+        </div>
+        <div class="large-3 columns">
+          <div class="docs-component__controls">
+            <label class="docs-component__control-label">
+              translate position
+              {{one-way-input xValue update=(action (mut xValue)) class='docs-component__animex-value'}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

@@ -1,13 +1,12 @@
 import Ember from 'ember';
 import layout from '../templates/components/slow-motion';
 import RunMixin from 'ember-lifeline/mixins/run';
-import {call} from '../utils/computed';
 import MotionCore from '../mixins/motion-core';
-import {MS_PER_FRAME} from '../mixins/motion-core';
+import { MS_PER_FRAME } from '../mixins/motion-core';
 
 const {
   guidFor,
-  set,
+  set
 } = Ember;
 
 export default Ember.Component.extend(RunMixin, MotionCore, {
@@ -16,10 +15,7 @@ export default Ember.Component.extend(RunMixin, MotionCore, {
 
   init(...args) {
     this._super(...args);
-    this.pollTask(
-      'progressTransition',
-      `slow-motion:${guidFor(this)}#progressTransition`,
-    );
+    this.pollTask('progressTransition', `slow-motion:${guidFor(this)}#progressTransition`);
   },
   progressTransition(next) {
     const {
@@ -27,29 +23,25 @@ export default Ember.Component.extend(RunMixin, MotionCore, {
       transitionPercentage,
       percentagePerFrame,
       isDone,
-      isError,
+      isError
     } = this.getProperties(
       'scaledTransitionFunction',
       'transitionPercentage',
       'percentagePerFrame',
       'isDone',
-      'isError',
+      'isError'
     );
     if (!isDone) {
-      set(
-        this,
-        'inbetweenValue',
-        scaledTransitionFunction(transitionPercentage),
-      );
+      set(this, 'inbetweenValue', scaledTransitionFunction(transitionPercentage));
       this.incrementProperty('transitionPercentage', percentagePerFrame);
     }
     if (isError) {
       Ember.Logger.error(
         '[slow-motion] Encountered an error where the animation was being run backwards for some reason',
-        this,
+        this
       );
     } else {
       this.runTask(next, MS_PER_FRAME);
     }
-  },
+  }
 });
