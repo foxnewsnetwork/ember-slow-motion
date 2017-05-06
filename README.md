@@ -1,5 +1,7 @@
 # ember-slow-motion
 
+[![Build Status](https://travis-ci.org/foxnewsnetwork/ember-slow-motion.svg?branch=master)](https://travis-ci.org/foxnewsnetwork/ember-slow-motion)
+
 Ember tagless component for handling value transitions in handlebars. Inspired by the api of react-motion https://github.com/chenglou/react-motion
 
 ## Usage
