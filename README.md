@@ -1,12 +1,6 @@
-# ember-slow-motion - WIP
+# ember-slow-motion
 
 Ember tagless component for handling value transitions in handlebars. Inspired by the api of react-motion https://github.com/chenglou/react-motion
-
-## TODOs
-- [ ] write out the tests
-- [ ] create an example in index.hbs
-- [ ] setup CI properly
-- [ ] roll in gh-pages
 
 ## Usage
 Use the `{{slow-motion}}` component like so:
@@ -26,6 +20,8 @@ Use the `{{slow-motion}}` component like so:
 ```
 
 `{{slow-motion}}` receives changes to `myValue`, it will continuously yield out the interpolated in-between values to `animatedValue` during the entire `transitionDuration`
+
+Play with the demo here: https://foxnewsnetwork.github.io/ember-slow-motion
 
 ## Installation
 
