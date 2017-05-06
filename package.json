@@ -1,6 +1,6 @@
 {
   "name": "ember-slow-motion",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "ember tagless component for handling slowly transitioning values as inspired by react motion",
   "keywords": [
     "ember-addon",
